@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "declaration": true,
+    "module": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "skipLibCheck": true,
+    "removeComments": false,
+    "allowImportingTsExtensions": true,
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    /* Linting */
+    "strict": true
+  },
+  /* inclusion of test files allows type issues to be detected while typing tests */
+  "include": ["src/*", "types.d.ts", "test/*"]
+}

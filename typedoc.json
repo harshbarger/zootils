@@ -1,0 +1,19 @@
+{
+  "entryPoints": ["src/index.ts", "src/types.ts"],
+  "categorizeByGroup": false,
+  "cleanOutputDir": true,
+  "excludeInternal": true,
+  "excludeNotDocumented": true,
+  "hideGenerator": true,
+  "includeVersion": true,
+  "sort": ["alphabetical"],
+  "out": "docs",
+  "visibilityFilters": {},
+  "navigationLinks": {
+    "GitHub Repo": "https://www.notyet.com"
+  },
+  "jsDocCompatibility": {
+    "exampleTag": true
+  },
+  "json": "docs/exp.json"
+}
