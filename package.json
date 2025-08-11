@@ -1,25 +1,24 @@
 {
   "name": "zootils",
-  "version": "0.8.0",
+  "version": "0.8.2",
   "description": "A utility library written in Typscript",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
   "type": "module",
+  "files": [
+    "./dist"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/harshbarger/zootils.git"
   },
   "scripts": {
-    "build": "tsc && vite build && npm run copy-to-dist",
-    "copy-to-dist": "copy-file ./README.md --folder dist && copy-file ./package.json --folder dist && copy-file ./LICENSE.md --folder dist",
-    "docs": "npm run build && typedoc",
+    "build-patch": "npm version patch && tsc && vite build && typedoc",
+    "build-minor": "npm version minor && tsc && vite build && typedoc",
+    "build-major": "npm version major && tsc && vite build && typedoc",
     "test": "vitest run",
-    "release": "npm run build && typedoc && np"
-  },
-  "np": {
-    "contents": "./dist",
-    "publish": false
+    "release-patch": "npm publish"
   },
   "keywords": [
     "utility",
@@ -31,9 +30,7 @@
   "license": "BSD-3-Clause",
   "devDependencies": {
     "@types/node": "^24.2.1",
-    "copy-file-util": "^1.3.1",
     "lefthook": "^1.12.2",
-    "np": "^10.2.0",
     "prettier": "^3.6.2",
     "typedoc": "^0.28.10",
     "typedoc-theme-oxide": "^0.2.0",
