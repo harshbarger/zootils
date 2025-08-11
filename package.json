@@ -11,14 +11,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/harshbarger/zootils.git"
+    "url": "git+https://github.com/harshbarger/zootils.git"
   },
   "scripts": {
     "build-patch": "npm version patch && tsc && vite build && typedoc",
     "build-minor": "npm version minor && tsc && vite build && typedoc",
     "build-major": "npm version major && tsc && vite build && typedoc",
     "test": "vitest run",
-    "release-patch": "npm publish"
+    "release": "npm publish"
   },
   "keywords": [
     "utility",
