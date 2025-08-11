@@ -6,6 +6,10 @@
   "module": "index.js",
   "types": "index.d.ts",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harshbarger/zootils.git"
+  },
   "scripts": {
     "build": "tsc && vite build && npm run copy-to-dist",
     "copy-to-dist": "copy-file ./README.md --folder dist && copy-file ./package.json --folder dist && copy-file ./LICENSE.md --folder dist",

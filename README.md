@@ -21,6 +21,10 @@ const add5 = add(5);
 add5(3); // 8
 ```
 
-# Documentation
+## Documentation
 
 See the [docs](https://harshbarger.github.io/zootils/modules/src.html) for individual function documentation.
+
+## License
+
+[BSD 3 Clause](https://github.com/harshbarger/zootils/blob/main/LICENSE.md)
