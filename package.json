@@ -1,14 +1,11 @@
 {
   "name": "zootils",
-  "version": "0.8.4",
+  "version": "0.8.8",
   "description": "A utility library written in Typscript",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
   "type": "module",
-  "files": [
-    "./dist"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/harshbarger/zootils.git"
@@ -19,7 +16,7 @@
     "build-major": "npm version major && tsc && vite build && typedoc && npm run copy-dist",
     "copy-dist": "copy-file README.md --folder dist && copy-file LICENSE.md --folder dist && copy-file package.json --folder dist",
     "test": "vitest run",
-    "release": "npm publish ./dist"
+    "release": "cd dist && npm publish && cd .."
   },
   "keywords": [
     "utility",
