@@ -1,6 +1,6 @@
 {
   "name": "zootils",
-  "version": "0.8.2",
+  "version": "0.8.3",
   "description": "A utility library written in Typscript",
   "main": "index.js",
   "module": "index.js",
