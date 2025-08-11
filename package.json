@@ -14,7 +14,7 @@
     "url": "git+https://github.com/harshbarger/zootils.git"
   },
   "scripts": {
-    "build-patch": "npm version patch && tsc && vite build && && typedoc && npm run copy-dist",
+    "build-patch": "npm version patch && tsc && vite build && typedoc && npm run copy-dist",
     "build-minor": "npm version minor && tsc && vite build && typedoc && npm run copy-dist",
     "build-major": "npm version major && tsc && vite build && typedoc && npm run copy-dist",
     "copy-dist": "copy-file README.md --folder dist && copy-file LICENSE.md --folder dist && copy-file package.json --folder dist",
