@@ -19,7 +19,7 @@
     "build-major": "npm version major && tsc && vite build && typedoc && npm run copy-dist",
     "copy-dist": "copy-file README.md --folder dist && copy-file LICENSE.md --folder dist && copy-file package.json --folder dist",
     "test": "vitest run",
-    "release": "npm publish ./dist --dry-run"
+    "release": "npm publish ./dist"
   },
   "keywords": [
     "utility",
