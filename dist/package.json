@@ -1,10 +1,13 @@
 {
   "name": "zootils",
   "version": "0.8.0",
-  "description": "A utility library written in Typscript",
+  "description": "Utilites of various sorts",
   "main": "index.js",
   "module": "index.js",
   "types": "index.d.ts",
+  "files": [
+    "dist"
+  ],
   "type": "module",
   "scripts": {
     "build": "tsc && vite build && npm run copy-to-dist",
