@@ -1,0 +1,22 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: hsl(240 20 15);
+  }
+
+  .sidebar {
+    background-color: hsl(240 20 20);
+  }
+}
+
+.comment-tags .stab {
+  display: none;
+}
+
+#settings-menu,
+#help-button {
+  display: none;
+}
+
+pre:has(code) {
+  border: 1px solid #444;
+}

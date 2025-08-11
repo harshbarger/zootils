@@ -3,15 +3,16 @@
     "target": "ES2022",
     "declaration": true,
     "module": "ESNext",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
     "removeComments": false,
     "allowImportingTsExtensions": true,
     "moduleResolution": "Bundler",
     "noEmit": true,
     /* Linting */
-    "strict": true
+    "strict": true,
+    "types": ["vitest/importMeta"],
   },
-  /* inclusion of test files allows type issues to be detected while typing tests */
-  "include": ["src/*", "types.d.ts", "test/*"]
+
+  "include": ["src/*", "types.d.ts"],
 }

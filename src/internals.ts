@@ -1,12 +1,12 @@
 /**
- * If index is invalid, returns NaN
- * If index is negative, return positive equivalent index
- * Otherwise return index
+ * If index is invalid, returns NaN.
+ * If index is negative, return positive equivalent index.
+ * Otherwise return index.
  *
  * @internal
  */
 export function getAdjustedIndex(
-  value: string | unknown[],
+  value: string | any[],
   i: number,
   allowed:
     | "inBoundsOrLarger"
@@ -60,6 +60,17 @@ export function purry(fn: (...args: any) => any, ...args: ReadonlyArray<any>) {
 
 /**
  * @param value
+ * @param condition
+ * @returns
+ *
+ * @internal
+ */
+function conditionPasses<I>(value: I, condition: PredicateOrConst<I>): boolean {
+  return condition instanceof Function ? condition(value) : condition === value;
+}
+
+/**
+ * @param value
  * @param transform
  *
  * @example
@@ -67,7 +78,46 @@ export function purry(fn: (...args: any) => any, ...args: ReadonlyArray<any>) {
  * doTransform(5, x => x * 2);   // 10
  * doTransform(5, 3);            // 3
  * ```
+ *
+ * @internal
  */
-export function doTransform<I, O>(value: I, transform: Transform<I, O>): O {
+export function doTransform<I, O>(value: I, transform: FnOrConst<I, O>): O {
   return transform instanceof Function ? transform(value) : transform;
+}
+
+/**
+ * Adds the global flag to a regular expression if it isn't
+ * there already. (Returns a copy if the flag must be added.)
+ *
+ * @param regex
+ *
+ * @internal
+ */
+export function ensureGlobalFlag(regex: RegExp): RegExp {
+  return regex.global ? regex : new RegExp(regex.source, regex.flags + "g");
+}
+
+/**
+ * Removes the gloabl flag from a regular expression if there is
+ * one. (Returns a copy if the flag must be removed.)
+ *
+ * @param regex
+ *
+ * @internal
+ */
+export function ensureNoGlobalFlag(regex: RegExp): RegExp {
+  return regex.global
+    ? new RegExp(regex.source, regex.flags.replace("g", ""))
+    : regex;
+}
+
+/**
+ * Returns an empty string if `value` is string, or empty array if `value` is array.
+ * @param value
+ * @returns
+ *
+ * @internal
+ */
+export function empty<I extends string | any[]>(value: I): I {
+  return (Array.isArray(value) ? [] : "") as I;
 }
