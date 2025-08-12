@@ -14,7 +14,7 @@ function _reduce<I extends any[], O = ElementType<I>>(
 }
 
 /**
- * A data-frst counterpart to `Array.prototype.reduce`, but with more permissive typing than
+ * A data-first counterpart to `Array.prototype.reduce`, but with more permissive typing than
  * the TS library uses out of the box, allowing the result to have a different type from
  * the `data` elements themselves.
  *
