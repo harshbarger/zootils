@@ -1,16 +1,16 @@
 import { purry } from "./internals";
 import { POJO, ValueType } from "./types";
 
-function _mapProps<I extends POJO<any>, O = POJO<any>>(
-  data: Record<string, I>,
-  transform: (x: I) => O
-): Record<string, O> {
+function _mapProps<I extends POJO<any>, O extends POJO<any>>(
+  data: I,
+  transform: (x: ValueType<I>) => ValueType<O>
+): O {
   return Object.fromEntries(
     Object.entries(data).map(([key, value]) => [
       key,
       transform(value),
     ])
-  );
+  ) as O;
 }
 
 /**
@@ -29,7 +29,7 @@ function _mapProps<I extends POJO<any>, O = POJO<any>>(
 export function mapProps<I extends POJO<any>, O extends POJO<any>>(
   data: I,
   transform: (x: ValueType<I>) => ValueType<O>
-): Record<string, O>;
+): O;
 
 /**
  * @param transform
@@ -41,8 +41,8 @@ export function mapProps<I extends POJO<any>, O extends POJO<any>>(
  *
  * @category Object
  */
-export function mapProps<I extends POJO<any>, O = POJO<any>>(
-  transform: (x: I) => O
+export function mapProps<I extends POJO<any>, O extends POJO<any>>(
+  transform: (x: ValueType<I>) => ValueType<O>
 ): (data: I) => O;
 
 export function mapProps(...args: any[]) {
