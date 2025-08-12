@@ -1,3 +1,6 @@
+/**
+ * An accumulator function for use in reducing an array.
+ */
 declare type Accumulator<I extends any[], O> = (acc: O, x: I[number]) => O;
 
 /**
@@ -516,6 +519,9 @@ export declare function elementPasses<I extends any[]>(data: I, index: number, c
  */
 export declare function elementPasses<I extends any[]>(index: number, condition: Predicate<ElementType<I>>): (data: I) => boolean;
 
+/**
+ * The type of an element in an array.
+ */
 declare type ElementType<T extends any[]> = T[number];
 
 /**
@@ -864,8 +870,14 @@ export declare function firstMatch(regex: RegExp): (data: string) => string | un
  */
 export declare function flatten<I extends (any | any[])[]>(data: I): ElementType<I>;
 
+/**
+ * A function that takes a single input.
+ */
 declare type Fn<I, O> = (x: I) => O;
 
+/**
+ * A function that returns a boolean and accepts an index as the second argument.
+ */
 declare type IndexedPredicate<I> = (x: I, i: number) => boolean;
 
 /**
@@ -1578,7 +1590,7 @@ export declare function map<I extends any[], O extends any[] = I>(transform: (x:
  *
  * @category Object
  */
-export declare function mapProps<I extends POJO<any>, O extends POJO<any>>(data: I, transform: (x: ValueType<I>) => ValueType<O>): Record<string, O>;
+export declare function mapProps<I extends POJO<any>, O extends POJO<any>>(data: I, transform: (x: ValueType<I>) => ValueType<O>): O;
 
 /**
  * @param transform
@@ -1590,7 +1602,7 @@ export declare function mapProps<I extends POJO<any>, O extends POJO<any>>(data:
  *
  * @category Object
  */
-export declare function mapProps<I extends POJO<any>, O = POJO<any>>(transform: (x: I) => O): (data: I) => O;
+export declare function mapProps<I extends POJO<any>, O extends POJO<any>>(transform: (x: ValueType<I>) => ValueType<O>): (data: I) => O;
 
 /**
  * Similar to {@link map} (which is in turn similar to `Array.prototype.map`),
@@ -2210,6 +2222,9 @@ export declare function pick<I extends POJO<any>, O = Partial<I>>(data: I, keys:
  */
 export declare function pick<I extends POJO<any>, O = Partial<I>>(keys: string[]): (data: I) => O;
 
+/**
+ * A plain object with string keys.
+ */
 declare type POJO<T> = Record<string, T>;
 
 /**
@@ -2242,6 +2257,9 @@ export declare function pow(data: number, exponent: number): number;
  */
 export declare function pow(exponent: number): (data: number) => number;
 
+/**
+ * A function that returns a boolean.
+ */
 declare type Predicate<I> = (x: I) => boolean;
 
 /**
@@ -2380,7 +2398,7 @@ export declare function propPasses<I extends POJO<any>>(data: I, key: string, co
 export declare function propPasses<I extends POJO<any>>(key: string, condition: Predicate<ValueType<I>>): (data: I) => boolean;
 
 /**
- * A data-frst counterpart to `Array.prototype.reduce`, but with more permissive typing than
+ * A data-first counterpart to `Array.prototype.reduce`, but with more permissive typing than
  * the TS library uses out of the box, allowing the result to have a different type from
  * the `data` elements themselves.
  *
@@ -3028,6 +3046,9 @@ export declare function trimRight(data: string): string;
  */
 export declare function upperCase(data: string): string;
 
+/**
+ * The type of a property in a POJO (plain JavaScript object).
+ */
 declare type ValueType<T extends POJO<any>> = T[keyof T];
 
 export { }
