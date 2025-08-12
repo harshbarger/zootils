@@ -1,5 +1,5 @@
 {
-  "entryPoints": ["src/index.ts", "types.d.ts"],
+  "entryPoints": ["src/index.ts", "src/types.ts"],
   "categorizeByGroup": true,
   "cleanOutputDir": true,
   "customCss": "src/docs.css",
