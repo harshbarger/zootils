@@ -9,10 +9,11 @@ export default defineConfig(
         entry: resolve(__dirname, "src/index.ts"),
         name: "zootils",
         fileName: "index",
+        formats: ["es"],
       },
     },
 
-    plugins: [dts()],
+    plugins: [dts({ rollupTypes: true })],
 
     define: {
       "import.meta.vitest": "undefined",

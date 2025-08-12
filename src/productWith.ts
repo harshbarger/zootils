@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { ElementType, Fn } from "./types";
 
 function _productWith<I extends any[]>(
   data: I,

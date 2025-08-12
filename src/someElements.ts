@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { ElementType, Predicate } from "./types";
 
 function _someElements<I extends any[]>(
   data: I,

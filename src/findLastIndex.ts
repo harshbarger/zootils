@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { ElementType, Predicate } from "./types";
 
 function _findLastIndex<I extends any[]>(
   data: I,

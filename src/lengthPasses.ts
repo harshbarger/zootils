@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { Predicate } from "./types";
 
 function _lengthPasses(
   data: any[] | string,

@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { Predicate } from "./types";
 
 function _notAll<T>(data: T, conditions: Predicate<T>[]): boolean {
   return !conditions.every((c) => c(data));

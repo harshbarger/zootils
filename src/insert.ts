@@ -1,4 +1,5 @@
 import { getAdjustedIndex, purry } from "./internals";
+import { ElementType } from "./types";
 
 function _insert<I extends any[] | string>(
   data: I,

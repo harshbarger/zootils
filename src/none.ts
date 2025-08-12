@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { Predicate } from "./types";
 
 function _none<T>(data: T, conditions: Predicate<T>[]): boolean {
   return !conditions.some((c) => c(data));

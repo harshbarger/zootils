@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { POJO, ValueType } from "./types";
 
 function _propOr<I extends POJO<any>>(
   data: I,

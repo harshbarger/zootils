@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { Accumulator, ElementType } from "./types";
 
 function _reduce<I extends any[], O = ElementType<I>>(
   data: I,

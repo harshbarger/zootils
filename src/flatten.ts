@@ -1,3 +1,5 @@
+import { ElementType } from "./types";
+
 /**
  * Flatten an array one level.
  *

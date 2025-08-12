@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { POJO, ValueType } from "./types";
 
 function _mapProps<I extends POJO<any>, O = POJO<any>>(
   data: Record<string, I>,

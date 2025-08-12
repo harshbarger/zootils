@@ -11,8 +11,8 @@
     "noEmit": true,
     /* Linting */
     "strict": true,
-    "types": ["vitest/importMeta"],
+    "types": ["vitest/importMeta"]
   },
 
-  "include": ["src/*", "types.d.ts"],
+  "include": ["src/*"]
 }

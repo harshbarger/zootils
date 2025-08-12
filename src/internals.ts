@@ -1,3 +1,5 @@
+import { FnOrConst, PredicateOrConst } from "./types";
+
 /**
  * If index is invalid, returns NaN.
  * If index is negative, return positive equivalent index.
@@ -50,7 +52,10 @@ export function getAdjustedIndex(
  *
  * @internal
  */
-export function purry(fn: (...args: any) => any, ...args: ReadonlyArray<any>) {
+export function purry(
+  fn: (...args: any) => any,
+  ...args: ReadonlyArray<any>
+) {
   if (args.length === fn.length) {
     return fn(...args);
   }
@@ -65,8 +70,13 @@ export function purry(fn: (...args: any) => any, ...args: ReadonlyArray<any>) {
  *
  * @internal
  */
-function conditionPasses<I>(value: I, condition: PredicateOrConst<I>): boolean {
-  return condition instanceof Function ? condition(value) : condition === value;
+function conditionPasses<I>(
+  value: I,
+  condition: PredicateOrConst<I>
+): boolean {
+  return condition instanceof Function
+    ? condition(value)
+    : condition === value;
 }
 
 /**
@@ -81,7 +91,10 @@ function conditionPasses<I>(value: I, condition: PredicateOrConst<I>): boolean {
  *
  * @internal
  */
-export function doTransform<I, O>(value: I, transform: FnOrConst<I, O>): O {
+export function doTransform<I, O>(
+  value: I,
+  transform: FnOrConst<I, O>
+): O {
   return transform instanceof Function ? transform(value) : transform;
 }
 
@@ -94,7 +107,9 @@ export function doTransform<I, O>(value: I, transform: FnOrConst<I, O>): O {
  * @internal
  */
 export function ensureGlobalFlag(regex: RegExp): RegExp {
-  return regex.global ? regex : new RegExp(regex.source, regex.flags + "g");
+  return regex.global
+    ? regex
+    : new RegExp(regex.source, regex.flags + "g");
 }
 
 /**

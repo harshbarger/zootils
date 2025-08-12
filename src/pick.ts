@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { POJO } from "./types";
 
 function _pick<I extends POJO<any>, O = Partial<I>>(
   data: I,

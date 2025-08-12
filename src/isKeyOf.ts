@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { POJO } from "./types";
 
 function _isKeyOf(data: string, obj: POJO<any>): boolean {
   return obj.hasOwnProperty(data);

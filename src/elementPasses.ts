@@ -1,4 +1,5 @@
 import { getAdjustedIndex, purry } from "./internals";
+import { ElementType, Predicate } from "./types";
 
 function _elementPasses<I extends any[]>(
   data: I,

@@ -1,5 +1,6 @@
 import { purry } from "./internals";
 import { isGt } from "./isGt";
+import { ElementType, Predicate } from "./types";
 
 function _noElements<I extends any[]>(
   data: I,

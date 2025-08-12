@@ -1,4 +1,5 @@
 import { getAdjustedIndex, purry } from "./internals";
+import { ElementType } from "./types";
 
 function _elementAt<I extends any[]>(
   data: I,

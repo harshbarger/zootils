@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { ElementType } from "./types";
 
 function _prependElement<I extends any[]>(
   data: I,

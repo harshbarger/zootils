@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { ElementType } from "./types";
 
 function _map<I extends any[], O extends any[] = I>(
   data: I,

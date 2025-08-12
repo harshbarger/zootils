@@ -1,4 +1,5 @@
 import { purry } from "./internals";
+import { ElementType, IndexedPredicate } from "./types";
 
 function _filterWithIndex<I extends any[]>(
   data: I,

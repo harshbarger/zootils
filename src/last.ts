@@ -1,3 +1,5 @@
+import { ElementType } from "./types";
+
 /**
  * Returns the last element of an array, or `undefined` if the array is empty.
  *
