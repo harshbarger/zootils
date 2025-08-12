@@ -34,7 +34,7 @@ add5(3); // 8
 
 ## Documentation
 
-See the [docs](https://harshbarger.github.io/zootils/modules/src.html) for individual function documentation.
+See the [docs](https://harshbarger.github.io/zootils/modules/index.html) for individual function documentation.
 
 ## License
 
