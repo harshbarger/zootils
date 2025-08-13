@@ -343,6 +343,62 @@ export declare function contains(data: any[] | string, value: any): boolean;
 export declare function contains(value: any): (data: any[] | string) => boolean;
 
 /**
+ * Count the number of elements (strictly) equal to `value` in the array `data`.
+ *
+ * @param data
+ * @param value
+ *
+ * @example
+ * ```
+ * count([1, 2, 3, 1, 2], 1); // 2
+ * ```
+ *
+ * @category Array
+ */
+export declare function count<I extends any[]>(data: I, value: ElementType<I>): number;
+
+/**
+ * @param value
+ *
+ * @example
+ * ```
+ * count(1)([1, 2, 3, 1, 2]); // 2
+ * ```
+ *
+ * @category Array
+ */
+export declare function count<I extends any[]>(value: ElementType<I>): (data: I) => number;
+
+/**
+ * Counts the number of elements in the `data` array that
+ * pass the `condition` predicate.
+ *
+ * @param data
+ * @param condition
+ *
+ * @example
+ * ```
+ * countWith([2, 10, -2, -6], isNegative);      // 2
+ * ```
+ *
+ * @category Array
+ */
+export declare function countWith<I extends any[]>(data: I, condition: Predicate<ElementType<I>>): number;
+
+/**
+ *
+ * @param condition
+ *
+ * @example
+ * ```
+ * countWith(isNegative)([2, 10, -2, -6]);      // 2
+ * ```
+ *
+ * @category Array
+ */
+export declare function countWith<I extends any[]>(condition: Predicate<ElementType<I>>): (data: I) => number;
+
+/**
  * Creates a new array with `length` elements, each filled with `value`.
  *
  * Creates an empty array for invalid `length` (non-integer or negative).
@@ -577,6 +633,39 @@ export declare function equalsOneOf(data: any, values: any[]): boolean;
  * @category Logic
  */
 export declare function equalsOneOf(values: any[]): (data: any) => boolean;
+
+/**
+ * Tells whether `data` and `value` are strictly equal after the `transform`
+ * function is applied to each.
+ *
+ * @param data
+ * @param value
+ * @param transform
+ *
+ * @example
+ * ```
+ * equalsWith(4, -4, Math.abs);      // true
+ * ```
+ *
+ * @category Logic
+ */
+export declare function equalsWith<I>(data: I, value: I, transform: (x: I) => any): boolean;
+
+/**
+ * @remarks The generic type specification is needed so TS doesn't infer the
+ * type as a specific constant.
+ *
+ * @param value
+ * @param transform
+ *
+ * @example
+ * ```
+ * equalsWith<number>(-4, Math.abs)(4);     // true
+ * ```
+ *
+ * @category Logic
+ */
+export declare function equalsWith<I>(value: I, transform: (x: I) => any): (data: I) => boolean;
 
 /**
  * Returns an array containing all matches to `regex` in the string
@@ -1081,7 +1170,6 @@ export declare function isDivisibleBy(divisor: number): (data: number) => boolea
  * not allow any tolerance for rounding errors in floating point numbers.
  *
  * @param data
- * @returns
  *
  * @example
  * ```

@@ -1,6 +1,6 @@
 {
   "name": "zootils",
-  "version": "0.9.2",
+  "version": "0.10.0",
   "description": "A utility library written in Typscript",
   "main": "./dist/index.js",
   "types": "dist/index.d.ts",
@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc && vite build",
-    "docs": "typedoc",
+    "docs": "npm run build && typedoc",
     "test": "vitest run",
     "dry-run": "npm publish --dry-run",
     "release": "npm publish"

@@ -3,7 +3,6 @@
  * not allow any tolerance for rounding errors in floating point numbers.
  *
  * @param data
- * @returns
  *
  * @example
  * ```
