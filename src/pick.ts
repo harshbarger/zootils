@@ -1,7 +1,7 @@
 import { purry } from "./internals";
 import { POJO } from "./types";
 
-function _pick<I extends POJO<any>, O = Partial<I>>(
+function _pick<I extends POJO<any>, O extends Partial<I> = Partial<I>>(
   data: I,
   keys: string[]
 ): O {

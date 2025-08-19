@@ -35,9 +35,7 @@ export function firstMatch(data: string, regex: RegExp): string;
  *
  * @category String
  */
-export function firstMatch(
-  regex: RegExp
-): (data: string) => string | undefined;
+export function firstMatch(regex: RegExp): (data: string) => string;
 
 export function firstMatch(...args: any[]) {
   return purry(_firstMatch, ...args);

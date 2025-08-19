@@ -941,7 +941,7 @@ export declare function firstMatch(data: string, regex: RegExp): string;
  *
  * @category String
  */
-export declare function firstMatch(regex: RegExp): (data: string) => string | undefined;
+export declare function firstMatch(regex: RegExp): (data: string) => string;
 
 /**
  * Flatten an array one level.
@@ -963,6 +963,40 @@ export declare function flatten<I extends (any | any[])[]>(data: I): ElementType
  * A function that takes a single input.
  */
 declare type Fn<I, O> = (x: I) => O;
+
+/**
+ * Indicates whether the object `data` contains a given `key`.
+ * If a key is directly to `undefined`, the object is still considered to contain the key.
+ *
+ * Implemented using `hasOwnProperty`.
+ *
+ * @param data
+ * @param key
+ *
+ * @example
+ *
+ * ```ts
+ * hasKey({ x: 5, z: 10 }, "x");  // true
+ * hasKey({ x: 5, z: 10 }, "y");  // false
+ * hasKey({ x: 5, z: undefined }, "z");  // true
+ * ```
+ *
+ * @category Object
+ */
+export declare function hasKey<I extends POJO<any>>(data: I, key: string): boolean;
+
+/**
+ * @param key
+ *
+ * @example
+ *
+ * ```ts
+ * hasKey("x")({ x: 5, z: 10 });  // true
+ * ```
+ *
+ * @category Object
+ */
+export declare function hasKey<I extends POJO<any>>(key: string): (data: I) => boolean;
 
 /**
  * A function that returns a boolean and accepts an index as the second argument.
@@ -1182,6 +1216,18 @@ export declare function isDivisibleBy(divisor: number): (data: number) => boolea
 export declare function isEven(data: number): boolean;
 
 /**
+ * Returns true if the `data` is a function, false otherwise.
+ *
+ * This is implemented using `typeof data === "function"`.
+ *
+ * @param data
+ * @returns
+ *
+ * @category Logic
+ */
+export declare function isFunction(data: any): data is Function;
+
+/**
  * Indicates whether `data` is greater than `value`.
  *
  * @param data
@@ -1395,6 +1441,21 @@ export declare function isNegative(data: number): boolean;
  * @category Math
  */
 export declare function isNonNegative(data: number): boolean;
+
+/**
+ * Indicates whether a string or array has length of at least one.
+ *
+ * @param data
+ *
+ * @example
+ * ```
+ * isNotEmpty("ostrich");      // true
+ * isNotEmpty([]);             // false
+ * ```
+ * @category Array
+ * @category String
+ */
+export declare function isNotEmpty(data: string | any[]): boolean;
 
 /**
  * Returns false if `data` is `null` or `undefined`, otherwise true.
