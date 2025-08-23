@@ -1,5 +1,3 @@
-import { FnOrConst, PredicateOrConst } from "./types";
-
 /**
  * If index is invalid, returns NaN.
  * If index is negative, return positive equivalent index.
@@ -61,41 +59,6 @@ export function purry(
   }
 
   return (data: any) => fn(data, ...args);
-}
-
-/**
- * @param value
- * @param condition
- * @returns
- *
- * @internal
- */
-function conditionPasses<I>(
-  value: I,
-  condition: PredicateOrConst<I>
-): boolean {
-  return condition instanceof Function
-    ? condition(value)
-    : condition === value;
-}
-
-/**
- * @param value
- * @param transform
- *
- * @example
- * ```
- * doTransform(5, x => x * 2);   // 10
- * doTransform(5, 3);            // 3
- * ```
- *
- * @internal
- */
-export function doTransform<I, O>(
-  value: I,
-  transform: FnOrConst<I, O>
-): O {
-  return transform instanceof Function ? transform(value) : transform;
 }
 
 /**

@@ -1,10 +1,10 @@
 import { purry } from "./internals";
 import { POJO } from "./types";
 
-function _pick<I extends POJO<any>, O extends Partial<I> = Partial<I>>(
-  data: I,
-  keys: string[]
-): O {
+function _pickKeys<
+  I extends POJO<any>,
+  O extends Partial<I> = Partial<I>,
+>(data: I, keys: string[]): O {
   return keys.reduce(
     (acc, key) => ({ ...acc, [key]: data[key] }),
     {}
@@ -24,7 +24,7 @@ function _pick<I extends POJO<any>, O extends Partial<I> = Partial<I>>(
  *
  * @category Object
  */
-export function pick<I extends POJO<any>, O = Partial<I>>(
+export function pickKeys<I extends POJO<any>, O = Partial<I>>(
   data: I,
   keys: (keyof I)[]
 ): O;
@@ -41,23 +41,23 @@ export function pick<I extends POJO<any>, O = Partial<I>>(
  *
  * @category Object
  */
-export function pick<I extends POJO<any>, O = Partial<I>>(
+export function pickKeys<I extends POJO<any>, O = Partial<I>>(
   keys: string[]
 ): (data: I) => O;
-export function pick(...args: any[]) {
-  return purry(_pick, ...args);
+export function pickKeys(...args: any[]) {
+  return purry(_pickKeys, ...args);
 }
 
 if (import.meta.vitest) {
   const { it, expect } = import.meta.vitest;
 
   it("keeps only specified keys", () => {
-    expect(pick({ a: 1, b: 2, c: 3 }, ["a", "b"])).toEqual({
+    expect(pickKeys({ a: 1, b: 2, c: 3 }, ["a", "b"])).toEqual({
       a: 1,
       b: 2,
     });
 
-    expect(pick(["a", "b", "d"])({ a: 1, b: 2, c: 3 })).toEqual({
+    expect(pickKeys(["a", "b", "d"])({ a: 1, b: 2, c: 3 })).toEqual({
       a: 1,
       b: 2,
     });

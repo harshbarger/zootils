@@ -1200,6 +1200,21 @@ export declare function isDivisibleBy(data: number, divisor: number): boolean;
 export declare function isDivisibleBy(divisor: number): (data: number) => boolean;
 
 /**
+ * Indicates whether a string or array has length zero.
+ *
+ * @param data
+ *
+ * @example
+ * ```
+ * isEmpty([]);             // true
+ * isEmpty("ostrich");      // false
+ * ```
+ * @category Array
+ * @category String
+ */
+export declare function isEmpty(data: string | any[]): boolean;
+
+/**
  * Indicates whether a number is even. Unlike `isDivisibleBy(2)`, `isEven` doesn't
  * not allow any tolerance for rounding errors in floating point numbers.
  *
@@ -2269,6 +2284,81 @@ export declare function nthRoot(data: number, n: number): number;
 export declare function nthRoot(n: number): (data: number) => number;
 
 /**
+ * Returns `value` if `data` is `null` or `undefined`, otherwise returns `data` unchanged.
+ *
+ * @param data
+ * @param value
+ *
+ * @example
+ * ```
+ * nullishTo(null, 5);        // 5
+ * nullishTo(undefined, 5);   // 5
+ * nullishTo(10, 5);          // 10
+ * ```
+ *
+ * @category Logic
+ */
+export declare function nullishTo<T>(data: T | null | undefined, value: T): T;
+
+/**
+ * Returns `value` if `data` is `null` or `undefined`, otherwise returns `data` unchanged.
+ *
+ * @param value
+ *
+ * @example
+ * ```
+ * nullishTo(5)(null);        // 5
+ * nullishTo(5)(undefined);   // 5
+ * nullishTo(5)(10);          // 10
+ * ```
+ *
+ * @category Logic
+ */
+export declare function nullishTo<T>(value: T): (data: T | null | undefined) => T;
+
+/**
+ * Returns `value` if `data` is `null`, otherwise returns `data` unchanged.
+ *
+ * @param data
+ * @param value
+ *
+ * @example
+ * ```
+ * nullTo(null, 5);     // 5
+ * nullTo(10, 5);       // 10
+ * ```
+ *
+ * @category Logic
+ */
+export declare function nullTo<T>(data: T | null, value: T): T;
+
+/**
+ * @param value
+ *
+ * @example
+ * ```
+ * nullTo(5)(null);      // 5
+ * nullTo(5)(10);        // 10
+ * ```
+ * @category Logic
+ */
+export declare function nullTo<T>(value: T): (data: T | null) => T;
+
+export declare function omitKeys<I extends POJO<any>, O extends Partial<I>>(data: I, keys: string[]): O;
+
+/**
+ * @param keys
+ *
+ * @example
+ * ```ts
+ * omitKeys(["a", "b"])({ a: 1, b: 2, c: 3 });   // { c: 3 }
+ * ```
+ *
+ * @category Object
+ */
+export declare function omitKeys<I extends POJO<any>, O extends Partial<I>>(keys: string[]): (data: I) => O;
+
+/**
  * If the string `data` is shorter than `length` characters, then adds copies of `chars`
  * to the left of the string until the string `length` is reached. If `chars` is more
  * than one character in length, the last copy will be truncated if necessary to reach
@@ -2355,7 +2445,7 @@ export declare function padRight(length: number, chars: string): (data: string |
  *
  * @category Object
  */
-export declare function pick<I extends POJO<any>, O = Partial<I>>(data: I, keys: (keyof I)[]): O;
+export declare function pickKeys<I extends POJO<any>, O = Partial<I>>(data: I, keys: (keyof I)[]): O;
 
 /**
  * Returns a new object consisting of only the portion of the `data` object with the specified `keys`.
@@ -2369,7 +2459,7 @@ export declare function pick<I extends POJO<any>, O = Partial<I>>(data: I, keys:
  *
  * @category Object
  */
-export declare function pick<I extends POJO<any>, O = Partial<I>>(keys: string[]): (data: I) => O;
+export declare function pickKeys<I extends POJO<any>, O = Partial<I>>(keys: string[]): (data: I) => O;
 
 /**
  * A plain object with string keys.
@@ -3179,6 +3269,35 @@ export declare function trimLeft(data: string): string;
  * @category String
  */
 export declare function trimRight(data: string): string;
+
+/**
+ * Returns `value` if `data` is `undefined`, otherwise returns `data` unchanged.
+ *
+ * @param data
+ * @param value
+ *
+ * @example
+ * ```
+ * undefinedTo(undefined, 5);   // 5
+ * undefinedTo(10, 5);          // 10
+ * ```
+ *
+ * @category Logic
+ */
+export declare function undefinedTo<T>(data: T | undefined, value: T): T;
+
+/**
+ * @param value
+ *
+ * @example
+ * ```
+ * undefinedTo(5)(undefined);    // 5
+ * undefinedTo(5)(10);           // 10
+ * ```
+ *
+ * @category Logic
+ */
+export declare function undefinedTo<T>(value: T): (data: T | undefined) => T;
 
 /**
  * A thin wrapper around the built-in `String.prototype.toUpperCase` to facilitate

@@ -32,16 +32,6 @@ export type ElementType<T extends any[]> = T[number];
 export type Fn<I, O> = (x: I) => O;
 
 /**
- * A function, or a constant of the same type as the function's output.
- */
-export type FnOrConst<I, O> = O | Fn<I, O>;
-
-/**
- * A function that returns a boolean, or a constant of the same type as the function's input.
- */
-export type PredicateOrConst<I> = I | Predicate<I>;
-
-/**
  * An accumulator function for use in reducing an array.
  */
 export type Accumulator<I extends any[], O> = (
